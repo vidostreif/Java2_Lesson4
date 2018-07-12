@@ -20,15 +20,12 @@ public class Main extends Application {
 
         Scene scene = new Scene(root, 350, 300);
 
-
         primaryStage.setScene(scene);
         primaryStage.show();
 
         Media sound = new Media(getClass().getResource("/Resurses/OneKiss.mp3").toURI().toString());
         mediaPlayer = new MediaPlayer(sound);
         mediaPlayer.play();
-
-
     }
 
     @Override
