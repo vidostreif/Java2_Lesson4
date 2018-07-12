@@ -5,7 +5,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.util.Duration;
 import java.util.Timer;
 
 public class Controller {
@@ -34,7 +33,6 @@ public class Controller {
         textField.clear();
         textField.requestFocus();
     }
-
 
     public void stopMusic() {
         Main.myMediaPlayer.stop();

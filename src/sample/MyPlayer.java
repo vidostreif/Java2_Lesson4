@@ -7,7 +7,7 @@ import javafx.util.Duration;
 import java.net.URISyntaxException;
 
 public class MyPlayer{
-    public MediaPlayer mediaPlayer;
+    private MediaPlayer mediaPlayer;
 
     public MyPlayer() throws URISyntaxException {
         Media sound = new Media(getClass().getResource("/Resurses/OneKiss.mp3").toURI().toString());
