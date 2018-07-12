@@ -8,9 +8,6 @@ import javafx.scene.control.TextField;
 import javafx.util.Duration;
 import java.util.Timer;
 
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-
 public class Controller {
 
     @FXML
@@ -40,31 +37,22 @@ public class Controller {
 
 
     public void stopMusic() {
-        Main.mediaPlayer.stop();
+        Main.myMediaPlayer.stop();
     }
 
     public void pauseMusic() {
-        Main.mediaPlayer.pause();
+        Main.myMediaPlayer.pause();
     }
 
     public void playMusic() {
-
-        System.out.println(Main.mediaPlayer.getStatus());
-        if (Main.mediaPlayer.getStatus() == MediaPlayer.Status.PAUSED || Main.mediaPlayer.getStatus() == MediaPlayer.Status.READY ) {
-            Main.mediaPlayer.play();
-        }
-        if (Main.mediaPlayer.getStatus() == MediaPlayer.Status.STOPPED) {
-            Main.mediaPlayer.stop();
-            Main.mediaPlayer.setStartTime(Duration.ZERO);
-            Main.mediaPlayer.play();
-        }
+        Main.myMediaPlayer.play();
     }
 
     public void sendVolume() {
-        Main.mediaPlayer.setVolume(volumeSlider.getValue());
+        Main.myMediaPlayer.setVolume(volumeSlider.getValue());
     }
 
     public void updateTime() {
-        currentTime.setText(Main.Format(Main.mediaPlayer.getCurrentTime()));
+        currentTime.setText(Main.myMediaPlayer.getTime());
     }
 }

@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class Main extends Application {
-    public static MediaPlayer mediaPlayer;
+    public static MyPlayer myMediaPlayer;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -23,15 +23,8 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
 
-        Media sound = new Media(getClass().getResource("/Resurses/OneKiss.mp3").toURI().toString());
-        mediaPlayer = new MediaPlayer(sound);
+        myMediaPlayer = new MyPlayer();
 
-        mediaPlayer.pause();
-
-        mediaPlayer.setOnEndOfMedia(new Runnable() { @Override
-        public void run() {
-            mediaPlayer.play();
-        }});
     }
 
     @Override
@@ -40,13 +33,6 @@ public class Main extends Application {
         Platform.exit();
         System.exit(0);
     }
-
-    public static String Format(Duration d) {
-        final int seconds = (int) (d.toMillis() / 1000) % 60;
-        final int minutes = (int) (d.toMillis() / (1000 * 60));
-        return String.format("%02d:%02d", minutes, seconds);
-    }
-
 
     public static void main(String[] args) {
 
