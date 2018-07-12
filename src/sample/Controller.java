@@ -29,9 +29,11 @@ public class Controller {
     }
 
     public void sendMsg() {
-        textArea.appendText(textField.getText() + "\n");
-        textField.clear();
-        textField.requestFocus();
+        if (!textField.getText().equals("")){
+            textArea.appendText(textField.getText() + "\n");
+            textField.clear();
+            textField.requestFocus();
+        }
     }
 
     public void stopMusic() {
