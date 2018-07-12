@@ -25,7 +25,13 @@ public class Main extends Application {
 
         Media sound = new Media(getClass().getResource("/Resurses/OneKiss.mp3").toURI().toString());
         mediaPlayer = new MediaPlayer(sound);
-        mediaPlayer.play();
+
+        mediaPlayer.pause();
+
+        mediaPlayer.setOnEndOfMedia(new Runnable() { @Override
+        public void run() {
+            mediaPlayer.play();
+        }});
     }
 
     @Override

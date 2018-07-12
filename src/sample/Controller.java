@@ -5,8 +5,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-
+import javafx.util.Duration;
 import java.util.Timer;
+
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 public class Controller {
 
@@ -35,13 +38,26 @@ public class Controller {
         textField.requestFocus();
     }
 
+
+    public void stopMusic() {
+        Main.mediaPlayer.stop();
+    }
+
     public void pauseMusic() {
         Main.mediaPlayer.pause();
     }
 
     public void playMusic() {
 
-        Main.mediaPlayer.play();
+        System.out.println(Main.mediaPlayer.getStatus());
+        if (Main.mediaPlayer.getStatus() == MediaPlayer.Status.PAUSED || Main.mediaPlayer.getStatus() == MediaPlayer.Status.READY ) {
+            Main.mediaPlayer.play();
+        }
+        if (Main.mediaPlayer.getStatus() == MediaPlayer.Status.STOPPED) {
+            Main.mediaPlayer.stop();
+            Main.mediaPlayer.setStartTime(Duration.ZERO);
+            Main.mediaPlayer.play();
+        }
     }
 
     public void sendVolume() {
